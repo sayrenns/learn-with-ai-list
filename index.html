@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Список инструментов AI для самообучения</title>
+    <title>AI инструменты для самообучения</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
-    <!-- Иконка сайта -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
 </head>
 <body>
     <div class="container">
-        <!-- Панель поиска и фильтров -->
         <div class="controls">
-            <input type="text" id="search" placeholder="Поиск по инструментам...">
-            <div class="filter-buttons">
+            <div class="search-container">
+                <input type="text" id="search" placeholder="🔍 Поиск по инструментам...">
+                <button class="clear-search" aria-label="Очистить поиск">×</button>
+            </div>
+            <div class="filters">
                 <button class="filter-btn active" data-filter="all">Все</button>
                 <button class="filter-btn" data-filter="text">Текст</button>
                 <button class="filter-btn" data-filter="image">Изображения</button>
@@ -23,75 +24,315 @@
         </div>
 
         <h1>🛠️ Инструменты AI для самообучения</h1>
-        
+
+        <div class="stats">
+            <span>Найдено инструментов: <strong id="toolsCount">8</strong></span>
+            <div class="sorting">
+                <label>Сортировка:</label>
+                <select id="sortSelect">
+                    <option value="name">По названию</option>
+                    <option value="date">По дате добавления</option>
+                </select>
+            </div>
+        </div>
+
         <section class="tools-list">
             <!-- ChatGPT -->
-            <article class="tool-card" data-categories="text">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" 
-                     alt="ChatGPT" class="tool-image">
+            <article class="tool-card" data-categories="text" data-date="2023-01-01">
+                <div class="tool-header">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/240px-ChatGPT_logo.svg.png" 
+                         alt="ChatGPT" class="tool-image" loading="lazy">
+                    <div class="tool-badges">
+                        <span class="badge popular">Популярное</span>
+                        <span class="badge free">Бесплатно</span>
+                    </div>
+                </div>
                 <div class="tool-content">
-                    <h2><a href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT</a></h2>
-                    <p class="description">Генерация текстов, идей, помощь в объяснении материала, перевод текстов.</p>
+                    <h2><a href="https://chatgpt.com" target="_blank" rel="noopener noreferrer">ChatGPT</a></h2>
                     <div class="tool-meta">
                         <span class="category">Текст</span>
-                        <span class="rating">★★★★☆</span>
+                        <span class="date">Добавлено: 01.01.2023</span>
+                    </div>
+                    <p class="description">Генерация текстов, идей, помощь в объяснении материала, перевод текстов.</p>
+                    <div class="tool-footer">
+                        <button class="details-btn">Подробнее</button>
+                        <div class="tool-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span class="reviews">(128 отзывов)</span>
+                        </div>
                     </div>
                 </div>
             </article>
 
-            <!-- Остальные карточки с аналогичными изменениями -->
-            
+            <!-- Copy.ai -->
+            <article class="tool-card" data-categories="text" data-date="2023-02-15">
+                <div class="tool-header">
+                    <img src="https://cdn.prod.website-files.com/628288c5cd3e8411b90a36a4/6797ee68ae7908e605a9a4d0_copy_logo-all-dark.svg" 
+                         alt="Copy.ai" class="tool-image" loading="lazy">
+                    <div class="tool-badges">
+                        <span class="badge new">Новое</span>
+                    </div>
+                </div>
+                <div class="tool-content">
+                    <h2><a href="https://www.copy.ai" target="_blank" rel="noopener noreferrer">Copy.ai</a></h2>
+                    <div class="tool-meta">
+                        <span class="category">Текст</span>
+                        <span class="date">Добавлено: 15.02.2023</span>
+                    </div>
+                    <p class="description">Генерация текста, перефразирование, поиск альтернативных формулировок.</p>
+                    <div class="tool-footer">
+                        <button class="details-btn">Подробнее</button>
+                        <div class="tool-rating">
+                            <span class="stars">★★★☆☆</span>
+                            <span class="reviews">(45 отзывов)</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- DALL-E -->
+            <article class="tool-card" data-categories="image" data-date="2023-03-10">
+                <div class="tool-header">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_SmSUcWUlowyAvNHyd2KWSqvHn6LoyNJwZA&s" 
+                         alt="DALL-E" class="tool-image" loading="lazy">
+                    <div class="tool-badges">
+                        <span class="badge popular">Популярное</span>
+                    </div>
+                </div>
+                <div class="tool-content">
+                    <h2><a href="https://labs.openai.com/" target="_blank" rel="noopener noreferrer">DALL-E</a></h2>
+                    <div class="tool-meta">
+                        <span class="category">Изображения</span>
+                        <span class="date">Добавлено: 10.03.2023</span>
+                    </div>
+                    <p class="description">Генерация изображений по текстовым описаниям на английском языке.</p>
+                    <div class="tool-footer">
+                        <button class="details-btn">Подробнее</button>
+                        <div class="tool-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span class="reviews">(89 отзывов)</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- DeepL -->
+            <article class="tool-card" data-categories="language" data-date="2023-04-05">
+                <div class="tool-header">
+                    <img src="https://www.deepl.com/img/logo/DeepL_Logo_darkBlue_v2.svg" 
+                         alt="DeepL" class="tool-image" loading="lazy">
+                    <div class="tool-badges">
+                        <span class="badge free">Бесплатно</span>
+                    </div>
+                </div>
+                <div class="tool-content">
+                    <h2><a href="https://www.deepl.com/translator" target="_blank" rel="noopener noreferrer">DeepL</a></h2>
+                    <div class="tool-meta">
+                        <span class="category">Языки</span>
+                        <span class="date">Добавлено: 05.04.2023</span>
+                    </div>
+                    <p class="description">Точный переводчик с поддержкой специализированной лексики.</p>
+                    <div class="tool-footer">
+                        <button class="details-btn">Подробнее</button>
+                        <div class="tool-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="reviews">(214 отзывов)</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Replika -->
+            <article class="tool-card" data-categories="language" data-date="2023-05-20">
+                <div class="tool-header">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1pHl1_JCYEIs28ZZs62B-TGMoC-NIgoJZUg&s" 
+                         alt="Replika" class="tool-image" loading="lazy">
+                    <div class="tool-badges">
+                        <span class="badge new">Новое</span>
+                    </div>
+                </div>
+                <div class="tool-content">
+                    <h2><a href="https://replika.com" target="_blank" rel="noopener noreferrer">Replika</a></h2>
+                    <div class="tool-meta">
+                        <span class="category">Языки</span>
+                        <span class="date">Добавлено: 20.05.2023</span>
+                    </div>
+                    <p class="description">Тренажёр для практики разговорного английского языка с AI-собеседником.</p>
+                    <div class="tool-footer">
+                        <button class="details-btn">Подробнее</button>
+                        <div class="tool-rating">
+                            <span class="stars">★★★☆☆</span>
+                            <span class="reviews">(67 отзывов)</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- DeepSeek -->
+            <article class="tool-card" data-categories="text" data-date="2023-06-15">
+                <div class="tool-header">
+                    <img src="https://www-cdn.morphcast.com/wp-content/uploads/2025/01/deepseek.jpg.webp" 
+                         alt="DeepSeek" class="tool-image" loading="lazy">
+                    <div class="tool-badges">
+                        <span class="badge popular">Популярное</span>
+                    </div>
+                </div>
+                <div class="tool-content">
+                    <h2><a href="https://www.deepseek.com" target="_blank" rel="noopener noreferrer">DeepSeek</a></h2>
+                    <div class="tool-meta">
+                        <span class="category">Текст</span>
+                        <span class="date">Добавлено: 15.06.2023</span>
+                    </div>
+                    <p class="description">Анализ учебных материалов, перевод терминов и поиск аргументов.</p>
+                    <div class="tool-footer">
+                        <button class="details-btn">Подробнее</button>
+                        <div class="tool-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span class="reviews">(92 отзыва)</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Duolingo -->
+            <article class="tool-card" data-categories="language" data-date="2023-07-01">
+                <div class="tool-header">
+                    <img src="https://play-lh.googleusercontent.com/ZYKTGrS5CresqrZJb-ewGyIHY2bA6dOKrTJqMAb6n4HXVQY4S9tOfhg0aiY8JH5zxg" 
+                         alt="Duolingo" class="tool-image" loading="lazy">
+                    <div class="tool-badges">
+                        <span class="badge free">Бесплатно</span>
+                    </div>
+                </div>
+                <div class="tool-content">
+                    <h2><a href="https://www.duolingo.com" target="_blank" rel="noopener noreferrer">Duolingo</a></h2>
+                    <div class="tool-meta">
+                        <span class="category">Языки</span>
+                        <span class="date">Добавлено: 01.07.2023</span>
+                    </div>
+                    <p class="description">Персонализированные языковые курсы с адаптацией под уровень ученика.</p>
+                    <div class="tool-footer">
+                        <button class="details-btn">Подробнее</button>
+                        <div class="tool-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="reviews">(305 отзывов)</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Perplexity AI -->
+            <article class="tool-card" data-categories="text" data-date="2023-08-10">
+                <div class="tool-header">
+                    <img src="https://zorgle.co.uk/wp-content/uploads/2024/11/Perplexity-logo.png" 
+                         alt="Perplexity AI" class="tool-image" loading="lazy">
+                    <div class="tool-badges">
+                        <span class="badge new">Новое</span>
+                    </div>
+                </div>
+                <div class="tool-content">
+                    <h2><a href="https://www.perplexity.ai" target="_blank" rel="noopener noreferrer">Perplexity AI</a></h2>
+                    <div class="tool-meta">
+                        <span class="category">Текст</span>
+                        <span class="date">Добавлено: 10.08.2023</span>
+                    </div>
+                    <p class="description">Поиск информации с указанием источников для учебных проектов.</p>
+                    <div class="tool-footer">
+                        <button class="details-btn">Подробнее</button>
+                        <div class="tool-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span class="reviews">(78 отзывов)</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
         </section>
 
-        <!-- Кнопка "Наверх" -->
         <button id="scrollTop" class="scroll-top-btn">↑</button>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <p>© 2024 AI Learning Tools. Все права защищены.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">Twitter</a>
+                    <a href="#" class="social-link">GitHub</a>
+                    <a href="#" class="social-link">Контакты</a>
+                </div>
+            </div>
+        </footer>
     </div>
 
-    <!-- Скрипты -->
-    <script>
+     <script>
         // Поиск и фильтрация
-        document.getElementById('search').addEventListener('input', function(e) {
-            const searchTerm = e.target.value.toLowerCase();
-            document.querySelectorAll('.tool-card').forEach(card => {
-                const text = card.textContent.toLowerCase();
-                card.style.display = text.includes(searchTerm) ? 'flex' : 'none';
-            });
+        const searchInput = document.getElementById('search');
+        const clearSearch = document.querySelector('.clear-search');
+        
+        searchInput.addEventListener('input', function(e) {
+            const term = e.target.value.toLowerCase();
+            filterTools();
+            updateToolsCount();
         });
 
-        // Фильтры по категориям
+        clearSearch.addEventListener('click', () => {
+            searchInput.value = '';
+            filterTools();
+            updateToolsCount();
+        });
+
+        // Фильтрация
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
-                
-                const filter = this.dataset.filter;
-                document.querySelectorAll('.tool-card').forEach(card => {
-                    card.style.display = filter === 'all' || card.dataset.categories.includes(filter) 
-                        ? 'flex' 
-                        : 'none';
-                });
+                filterTools();
+                updateToolsCount();
             });
         });
 
+        function filterTools() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const filter = document.querySelector('.filter-btn.active').dataset.filter;
+            
+            document.querySelectorAll('.tool-card').forEach(card => {
+                const matchesSearch = card.textContent.toLowerCase().includes(searchTerm);
+                const matchesFilter = filter === 'all' || card.dataset.categories.includes(filter);
+                card.style.display = matchesSearch && matchesFilter ? 'flex' : 'none';
+            });
+        }
+
+        // Сортировка
+        document.getElementById('sortSelect').addEventListener('change', function() {
+            const tools = Array.from(document.querySelectorAll('.tool-card'));
+            const container = document.querySelector('.tools-list');
+            
+            tools.sort((a, b) => {
+                if(this.value === 'name') {
+                    return a.querySelector('h2').textContent.localeCompare(b.querySelector('h2').textContent);
+                } else {
+                    return new Date(b.dataset.date) - new Date(a.dataset.date);
+                }
+            });
+
+            tools.forEach(tool => container.appendChild(tool));
+        });
+
+        // Обновление счетчика
+        function updateToolsCount() {
+            const count = document.querySelectorAll('.tool-card[style*="display: flex"]').length;
+            document.getElementById('toolsCount').textContent = count;
+        }
+
         // Кнопка "Наверх"
-        window.addEventListener('scroll', function() {
-            const scrollBtn = document.getElementById('scrollTop');
-            scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+        window.addEventListener('scroll', () => {
+            document.getElementById('scrollTop').style.display = 
+                window.scrollY > 500 ? 'block' : 'none';
         });
 
         document.getElementById('scrollTop').addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // Проверка работоспособности ссылок
-        document.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                if(!navigator.onLine) {
-                    e.preventDefault();
-                    alert('Проверьте подключение к интернету');
-                }
-            });
-        });
+        // Инициализация
+        updateToolsCount();
     </script>
 </body>
 </html>
